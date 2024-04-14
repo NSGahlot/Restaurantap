@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body style="margin: 0">
-  <form onSubmit = "handleFormSubmit(event)">
-<label for = "expenseAmount">Expense Amount</label>
-<input type = "text" name = "expenseAmount" id = "expenseAmount" placeholder="Enter your price"/>
-<label for = "description">Choose description</label>
-<input type = "text" name = "description" id = "description" placeholder="Enter description"/>
-<label for="category">Choose a category</label>
-<select id = "category">
-    <option value = "movie">Movie</option>
-    <option value = "fuel">Fuel</option>
-    <option value = "food">Food</option>
-    <option value = "electricity">Electricity</option>
-</select>
-<button type = "submit">Add Expenses</button>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense tracker app</title>
+</head>
+<body style = "margin: 0">
+  <form onsubmit="handleFormSubmit(event)">
+    <label for = "expenseAmount">Choose expenseamount</label>
+    <input type = "text" id = "expenseAmount" name ="expensesAmount" placeholder="Enter your price"/>
+    <label for = "description">Choose description</label>
+    <input type = "text" id = "description" name = "expensesDescription" placeholder="Enter description"/>
+    <select id = "category">
+      <option value="movie">Movie</option>
+      <option value="fuel">Fuel</option>
+      <option value="food">Food</option>
+      <option value="electricity">Electricity</option>
+    </select>
+    <button type = "submit">Add expenses</button>
   </form>
   <ul id = "userDetails"></ul>
-  </body>
-  <script src="index.js"></script>
+</body>
+<script src = "index.js"></script>
+</html>

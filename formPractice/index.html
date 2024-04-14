@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type = "text" id = "username" name = "username" placeholder="Your name"/>
+        <input type = "email" id = "email" name = "emailId" placeholder="Your email"/>
+        <button type = "submit">Submit</button>
+    </form>
+    <ul id = "showDetails">
+        
+    </ul>
+</body>
+</html>
+<script>
+const form = document.querySelector('form');
+form.addEventListener("submit", infoFunc);
+function infoFunc(event) {
+event.preventDefault();
+const username = document.getElementById('username').value;
+const email = document.getElementById('email').value;
+const obj = {
+    username,
+    email
+}
+localStorage.setItem(obj.email, JSON.stringify(obj));
+dislpayUser(obj);
+}
+
+function dislpayUser(obj) {
+    const ul = document.getElementById("showDetails");
+    const li = document.createElement("li");
+    li.textContent = obj.username  + " - " + obj.email;
+    
+    const delBtn = document.createElement("button");
+    delBtn.textContent = "Delete";
+    delBtn.addEventListener('click', delFun);
+    
+    function delFun() {
+    
+    ul.removeChild(li);
+    localStorage.removeItem(obj.email);
+    }
+    
+    li.appendChild(delBtn);
+    ul.appendChild(li);
+    }
+    
+    
+
+
+</script>

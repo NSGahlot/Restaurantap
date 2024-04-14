@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+</head>
+<body>
+    <!-- local Storage will always stores only strings and numbers-->
+
+</body>
+</html>
+
+<script>
+    // strings
+    // localStorage.setItem("key", "value")
+    localStorage.setItem("name1", "shanu");
+    localStorage.setItem("name2", "chotu")
+    // localStorage.getItem("key") if we want to get the name then we will use only key
+    let name1 = localStorage.getItem("name1");
+    let name2 = localStorage.getItem("name2");
+    // console.log(name2);
+ // numbers
+    localStorage.setItem("mobileNum", "123456789");
+    localStorage.setItem("cvv", 594);
+
+    let cvvNum = localStorage.getItem("cvv")
+    console.log(cvvNum);
+
+    // how to store arrays
+    const names = ["rovin", "banik", "aditya"];
+    localStorage.setItem("namesArray", names); // It is not storing like array
+    // we need to convert this array into string and then set it to local storage.
+
+    localStorage.setItem("namesArray", JSON.stringify(names))
+    // namesArray : ["rovin","banik","aditya"]
+   // JSON = universal data format
+   // JSON = c, c++, java
+   
+   let namesFromStorage = JSON.parse(localStorage.getItem("namesArray"));
+//    console.log(typeof namesFromStorage); o/p String
+// local storage will accept string and gives you back string
+// parse is kind of function
+
+// IMP --> Whenever you want to store in local storage --> JSON.stringify
+// IMP --> Whenever you wan to get array from ls --> JSON.parse
+
+// Now try to store an Object
+
+const obj  = {name: "shanu", place: "bangalore"}
+// localStorage.setItem("myObj", obj);
+// myObj : [object Object] because js dont't store objects directly.
+localStorage.setItem("myObj", JSON.stringify(obj)) 
+// myObj : {"name":"shanu","place":"bangalore"}
+
+const result = JSON.parse(localStorage.getItem("myObj"));
+console.log(result);
+
+</script>

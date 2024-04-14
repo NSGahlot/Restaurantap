@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="parent"> 
+    <button id="btn-1">1st Button</button> 
+    <button id="btn-2">2nd Button</button> 
+    <button id="btn-3">3rd Button</button> 
+    <button id="btn-4">4th Button</button> 
+    <button id="btn-5">5th Button</button> 
+</div>
+</body>
+</html>
+<script>
+const parentElement = document.getElementById('parent') 
+
+parentElement.addEventListener('click', handleClick) 
+
+function handleClick(event) { 
+  alert(event.target.id) 
+}
+</script>

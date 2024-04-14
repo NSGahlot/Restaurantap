@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="margin: 0">
+    <form onsubmit="handleFormSubmit(event)">
+      <label for="username">Username</label>
+      <input type="text" name="username" required/>
+      <label for="email">Email</label>
+      <input type="email" name="email" required/>
+      <label for="phone">Phone No</label>
+      <input type="tel" name="phone" />
+      <button type="submit">Submit</button>
+    </form>
+    <ul id = "listOfItems"></ul>
+  </body>
+ 
+</html>
+
+ <script>
+function handleFormSubmit(event) {
+  event.preventDefault();
+  const name = event.target.username.value;
+  const email = event.target.email.value;
+  const phone = event.target.phone.value;
+
+  const obj = {
+    name, 
+    email,
+    phone
+  }
+  localStorage.setItem(obj.email, JSON.stringify(obj));
+  displayUser(obj)
+  
+} 
+
+function displayUser(obj) {
+  const parentElement = document.getElementById('listOfItems')
+  const childElement = document.createElement('li')
+  childElement.textContent = obj.name + " - " + obj.email + " - " + obj.phone
+  
+  const delBtn = document.createElement('button');
+ delBtn.textContent = "Delete";
+
+  delBtn.addEventListener('click', deleteFun);
+
+  function deleteFun() {
+    localStorage.removeItem(obj.email);
+    parentElement.removeChild(childElement);
+  }
+  childElement.appendChild(delBtn);
+
+  const editBtn = document.createElement('input');
+  editBtn.type = 'button'
+  editBtn.value = 'Edit'
+
+  editBtn.addEventListener('click', editFun);
+
+  function editFun() {
+    localStorage.removeItem(obj.email);
+    parentElement.removeChild(childElement);
+    
+  }
+  childElement.appendChild(editBtn);
+  parentElement.appendChild(childElement);
+  // console.log(childElement);
+  
+}
+
+ </script>

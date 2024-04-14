@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abstraction</title>
+</head>
+<body>
+<h1 id = "timer"></h1>
+</body>
+</html>
+<script>
+    // const cat = {
+    //     legs: 4,
+    //     tail: true,
+    //     furs: true,
+    //     claws:  "sharp",
+    // };
+    // // Efficient way = Object.create()
+
+    // const lion = Object.create(cat);
+    // lion.speed = "60kph";
+
+    // const liger = Object.create(lion);
+    // console.log(liger);
+   
+    // function student(n,u){
+    //     this.name = n,
+    //     this.unit = u
+    // };
+
+    // student.prototype.bio = function(){
+    //     console.log(`hello from ${this.name}`);
+    // };
+
+    // let s1 = new student("shanu",7);
+    // console.log(s1);  
+    // s1.bio();
+    
+    // function Shoes(b,p){
+    //     this.brand = b,
+    //     this.seller = "flipkart";
+    //     this.prize = p
+    // };
+
+    // Shoes.prototype.addCoupon = function(){
+    //     console.log("20% discount on this product");
+    // };
+
+    // let s1 = new Shoes("Nike", 4500);
+    // console.log(s1);
+    // s1.addCoupon(); // u can't directly call constructor function you have to call object.
+    
+    // let str = "shanu";
+
+    // console.log(str.__proto__);
+
+    let h1 = document.getElementById("timer");
+    let i = 0;
+
+    setInterval(function() {
+       h1.innerText = i; 
+       i++;
+    }, 1000);
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id = "increment">Increment</button>
+    <button id = "decrement">Decrement</button>
+    <p id = "displayNum"></p>
+</body>
+</html>
+<script>
+    let i = 0;
+    const incBtn = document.getElementById("increment");
+    incBtn.addEventListener("click", incFunction)
+
+    function incFunction() {
+    const displayNum = document.getElementById("displayNum");
+    i++;
+    displayNum.textContent = i;
+    }
+    
+    const decBtn = document.getElementById("decrement");
+    decBtn.addEventListener('click', decFun);
+    function decFun() {
+        const displayNum = document.getElementById("displayNum");
+        i--;
+        displayNum.textContent = i;
+    }
+</script>

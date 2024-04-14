@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encapsulation</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+   class Employee{
+    constructor(){
+        let name;
+        let rating;
+    }
+    getName(){
+        return this.name;
+    }
+    getRating(){
+        return this.rating;
+    }
+    
+    setName(value){
+        this.name = value;
+    }
+    setRating(value){
+        this.rating = value;
+    }
+   }
+
+   let e1 = new Employee();
+   e1.setName("Pablo");
+   console.log(e1.getName());
+   
+   e1.setRating(10);
+   console.log(e1.getRating());
+
+
+
+
+
+
+
+</script>

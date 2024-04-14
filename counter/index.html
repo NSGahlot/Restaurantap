@@ -1,0 +1,77 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <form>
+    <label for = "username">Name:</label>
+    <input id = "username" type = "text" value = "hellobhai"></input>
+    <label for = "email" >Email:</label>
+    <input id = "email" type ="email" value = "test@test.com"></input>
+    <label for = "number">Number:</label>
+    <input id = "number" type="tel" value = "1234567890"></input>
+    <button type = "submit">Submit</button>
+</form>
+</body>
+</html>
+
+<script>
+const form = document.querySelector("form");
+form.addEventListener("submit", saveForm);
+function saveForm() {
+    event.preventDefault(event);
+    const userName = document.getElementById("username").value;
+    const maidId = document.getElementById("email").value;
+    const mblNumber = document.getElementById("number").value;
+    // const obj = {name: userName, email: maidId, mNumber: mblNumber}
+    // localStorage.setItem("user", JSON.stringify(obj));
+    localStorage.setItem("Username", userName);
+    localStorage.setItem("Email", maidId);
+    localStorage.setItem("PhoneNumber", mblNumber);
+
+    
+}
+console.log(document.forms);
+</script> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="margin: 0">
+    <form onsubmit="handleFormSubmit(event)">
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" />
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" />
+      <label for="phone">Phone No</label>
+      <input type="tel" name="phone" id="phone" />
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+ 
+</html>
+
+ <script>
+const form = document.querySelector("form");
+// form.addEventListener("submit", handleFormSubmit)
+
+function handleFormSubmit(event) {
+    event.preventDefault();
+    const username = document.getElementById("username").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+
+   const  obj = {name: username, email: email, phone: phone}
+   localStorage.setItem("User Details", JSON.stringify(obj));
+   console.log("inside");
+}
+
+ </script>

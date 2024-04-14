@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="margin: 0">
+    <form onsubmit="handleFormSubmit(event)">
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" />
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" />
+      <label for="phone">Phone No</label>
+      <input type="tel" name="phone" id="phone" />
+      <button type="submit">Submit</button>
+    </form>
+    <ul id = "display_details"></ul>
+  </body>
+ 
+</html>
+ <script>
+  const form = document.querySelector("form");
+    function handleFormSubmit(event) {
+    event.preventDefault();
+       const li = document.createElement("li");
+       const ul = document.getElementById("display_details");   
+      const name =  document.getElementById("username").value;  
+      const mailId = document.getElementById("email").value;   
+      const phnNumber = document.getElementById("phone").value    
+      const liTextNode = document.createTextNode(name + " - " + mailId + " - " + phnNumber);
+     li.appendChild(liTextNode);
+     const deleteBtn = document.createElement("button");
+     const deleteText = document.createTextNode("Delete");
+     deleteBtn.className = "delete"
+     deleteBtn.appendChild(deleteText);
+     li.appendChild(deleteBtn);
+     ul.appendChild(li);
+       const myObj = {
+        username: document.getElementById("username").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value
+    };
+    const userData = JSON.stringify(myObj);
+    localStorage.setItem("test@test.com", userData)
+    deleteBtn.addEventListener("click", function () {
+        ul.removeChild(li);
+        localStorage.removeItem("test@test.com");
+    })
+}    
+ </script>

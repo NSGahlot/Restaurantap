@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="margin: 0">
+    <form onsubmit="handleFormSubmit(event)">
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" />
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" />
+      <label for="phone">Phone No</label>
+      <input type="tel" name="phone" id="phone" />
+      <button type="submit">Submit</button>
+    </form>
+    <!-- Add Unordered List Element Here -->
+    <ul id = "listItems"></ul>
+    <!-- difference between onclick and onsubmit -->
+  </body>
+  <script>
+    const form = document.querySelector("form");
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        const name = event.target.username.value
+        const mail = event.target.email.value
+        const phone = event.target.phone.value
+
+        const obj = {
+          name,
+          mail, 
+          phone
+        };
+
+        const childElement = document.createElement("li");
+        const liTextNode = document.createTextNode(obj.name + " - " + obj.mail + " - " + obj.phone);
+        childElement.appendChild(liTextNode);
+        const deleteBtn = document.createElement("input");
+        deleteBtn.type = "button";
+        deleteBtn.value = "delete";
+        deleteBtn.onclick = function() {       // In JS
+              localStorage.removeItem(obj.mail);
+              parentElement.removeChild(childElement);
+        }
+        childElement.appendChild(deleteBtn);
+        const parentElement = document.getElementById("listItems");
+        parentElement.appendChild(childElement);
+        localStorage.setItem(obj.mail, JSON.stringify(obj));
+    }
+ //  onclick html <button onclick="myFunction()">Click me</button>
+ // onclick  in js = object.onclick = function(){myScript};
+ // onclick  in js = object.addEventListener("click", myScript);
+</script>
+</html>
